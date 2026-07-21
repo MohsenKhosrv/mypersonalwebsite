@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-lora), Georgia, "Times New Roman", serif;
+
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-border: var(--border);
+  --color-hero: var(--hero);
+  --color-hero-foreground: var(--hero-foreground);
+  --color-hero-muted: var(--hero-muted);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-teal: var(--teal);
+
+  --color-cat-analysis: var(--cat-analysis);
+  --color-cat-analysis-bg: var(--cat-analysis-bg);
+  --color-cat-viz: var(--cat-viz);
+  --color-cat-viz-bg: var(--cat-viz-bg);
+  --color-cat-product: var(--cat-product);
+  --color-cat-product-bg: var(--cat-product-bg);
+
+  --radius: 0.75rem;
+}
+
+:root {
+  --background: #f5f3ef;
+  --foreground: #1c1a17;
+  --muted: #efece6;
+  --muted-foreground: #6b6660;
+  --card: #ffffff;
+  --card-foreground: #1c1a17;
+  --border: #e4e0d8;
+
+  --hero: #0b1220;
+  --hero-foreground: #f1f5f9;
+  --hero-muted: #94a3b8;
+
+  --accent: #2f7d5b;
+  --accent-foreground: #ffffff;
+  --teal: #4db6ac;
+
+  --cat-analysis: #2563eb;
+  --cat-analysis-bg: #e5edfd;
+  --cat-viz: #7c3aed;
+  --cat-viz-bg: #efe8fd;
+  --cat-product: #15925f;
+  --cat-product-bg: #e2f3ea;
+}
+
+* {
+  border-color: var(--border);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+}
