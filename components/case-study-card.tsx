@@ -17,7 +17,7 @@ const ROWS: DetailRow[] = [
   { icon: TrendingUp, label: "Key Impact", key: "keyImpact" },
 ]
 
-export function CaseStudyCard({ study }: { study: CaseStudy }) {
+export function CaseStudyCard({ study, footerHref }: { study: CaseStudy; footerHref?: string }) {
   const styles = CATEGORY_STYLES[study.category]
 
   return (
@@ -73,18 +73,20 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
       </div>
 
       {/* Card footer */}
-      <div className="border-t border-border px-6 py-4 md:px-8">
-        <Link
-          href={`/projects#${study.id}`}
-          className="group inline-flex items-center gap-1 text-sm font-semibold text-teal"
-        >
-          Read Full Story
-          <ArrowUpRight
-            className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
-            aria-hidden="true"
-          />
-        </Link>
-      </div>
+      {footerHref ? (
+        <div className="border-t border-border px-6 py-4 md:px-8">
+          <Link
+            href={footerHref}
+            className="group inline-flex items-center gap-1 text-sm font-semibold text-teal"
+          >
+            Read Full Story
+            <ArrowUpRight
+              className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+              aria-hidden="true"
+            />
+          </Link>
+        </div>
+      ) : null}
     </article>
   )
 }

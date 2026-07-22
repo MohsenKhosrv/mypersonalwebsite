@@ -21,13 +21,13 @@ export default function ProjectsPage() {
           building a content business from zero.
         </p>
 
-        <div className="mt-10 grid gap-5 sm:grid-cols-2">
+        <div className="mt-10 flex flex-col gap-5">
           {CASE_STUDIES.map((study) => {
             const styles = CATEGORY_STYLES[study.category]
             return (
               <Link
                 key={study.id}
-                href={`/#${study.id}`}
+                href={`/projects/${study.id}`}
                 className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.18)]"
               >
                 <div className="flex items-center justify-between gap-3">
@@ -42,8 +42,10 @@ export default function ProjectsPage() {
                   {study.title}
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">{study.company}</p>
-                <p className="mt-3 leading-relaxed text-foreground/80 text-pretty">{study.problem}</p>
-                <span className="mt-5 inline-flex items-center gap-1 text-sm font-semibold text-teal">
+                <p className="mt-3 line-clamp-3 leading-relaxed text-foreground/80 text-pretty">
+                  {study.problem}
+                </p>
+                <span className="mt-5 inline-flex items-center gap-1 self-end text-sm font-semibold text-teal">
                   Read case study
                   <ArrowUpRight
                     className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
