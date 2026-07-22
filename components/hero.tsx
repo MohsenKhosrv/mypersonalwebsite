@@ -1,6 +1,7 @@
 import Link from "next/link"
 
 const NAV_LINKS = [
+  { href: "/", label: "Portfolio" },
   { href: "/resume", label: "Resume" },
   { href: "/projects", label: "Projects" },
   { href: "/blog", label: "Blog" },
@@ -66,12 +67,14 @@ export function Hero() {
               >
                 View Resume
               </Link>
-              <Link
-                href="/contact"
+              <a
+                href="https://www.linkedin.com/in/khosravimohsen/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="rounded-lg border border-white/20 px-6 py-3 text-sm font-semibold text-hero-foreground transition-colors hover:bg-white/10"
               >
                 Let&apos;s Connect
-              </Link>
+              </a>
             </div>
           </div>
         </div>

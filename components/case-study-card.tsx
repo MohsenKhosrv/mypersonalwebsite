@@ -1,4 +1,5 @@
-import { AlertTriangle, Star, CheckCircle2, TrendingUp, type LucideIcon } from "lucide-react"
+import Link from "next/link"
+import { AlertTriangle, Star, CheckCircle2, TrendingUp, ArrowUpRight, type LucideIcon } from "lucide-react"
 import type { CaseStudy } from "@/lib/case-studies"
 import { CATEGORY_LABELS } from "@/lib/case-studies"
 import { CATEGORY_STYLES } from "@/lib/category-styles"
@@ -69,6 +70,20 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
             </div>
           )
         })}
+      </div>
+
+      {/* Card footer */}
+      <div className="border-t border-border px-6 py-4 md:px-8">
+        <Link
+          href={`/projects#${study.id}`}
+          className="group inline-flex items-center gap-1 text-sm font-semibold text-teal"
+        >
+          Read Full Story
+          <ArrowUpRight
+            className="size-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5"
+            aria-hidden="true"
+          />
+        </Link>
       </div>
     </article>
   )
