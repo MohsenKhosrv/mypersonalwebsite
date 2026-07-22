@@ -8,36 +8,12 @@ export const metadata: Metadata = {
 
 const POSTS = [
   {
-    title: "Why Your Demand Forecast Is Wrong (and How to Fix It)",
-    date: "March 2025",
-    readingTime: "7 min read",
+    title: "What My Posts Here Are About",
+    date: "July 2026",
+    readingTime: "0 min read",
     excerpt:
-      "Judgment-based forecasting feels safe until it cascades into excess inventory and constant production churn. Here is the data-driven method I used to sustain 90%+ accuracy.",
-    tag: "Data Analysis",
-  },
-  {
-    title: "Recovering Data the System Deleted",
-    date: "February 2025",
-    readingTime: "6 min read",
-    excerpt:
-      "When a source system severs the link between a record and the event that caused it, the lineage isn't always gone. Sometimes it's hiding in the audit log.",
-    tag: "Data Visualization",
-  },
-  {
-    title: "Building a Content Business From a Single Test Channel",
-    date: "November 2024",
-    readingTime: "9 min read",
-    excerpt:
-      "How an underserved diaspora audience and a disciplined content strategy turned one experiment into an eight-channel operation with 300K+ subscribers.",
-    tag: "Product Management",
-  },
-  {
-    title: "The Analyst's Job Is to Change a Decision",
-    date: "September 2024",
-    readingTime: "4 min read",
-    excerpt:
-      "A dashboard nobody acts on is a cost, not an asset. A short argument for measuring analytics work by the decisions it moves.",
-    tag: "Data Analysis",
+      "This section is dedicated to my personal posts, learnings, product teardowns and book recommendations.",
+    tag: "Welcome",
   },
 ]
 

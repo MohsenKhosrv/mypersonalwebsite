@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 
 const NAV_LINKS = [
@@ -39,16 +40,15 @@ export function Hero() {
         </nav>
 
         <div className="flex flex-col gap-6 md:flex-row md:items-start md:gap-7">
-          <div
-            className="flex size-20 shrink-0 items-center justify-center rounded-full font-serif text-2xl font-bold text-hero-foreground shadow-lg ring-4 ring-white/5 md:size-24"
-            style={{
-              background: "radial-gradient(circle at 30% 30%, #4db6ac, #1f6f68 70%, #134e4a)",
-            }}
-            aria-hidden="true"
-          >
-            MK
-          </div>
-          <div className="max-w-2xl">
+          <Image
+            src="/headshot.jpg"
+            alt="Mohsen Khosravi"
+            width={250}
+            height={250}
+            priority
+            className="h-[250px] w-[250px] shrink-0 rounded-full object-cover shadow-lg ring-4 ring-white/5"
+          />
+          <div className="max-w-2xl md:ml-[100px]">
             <h1 className="font-serif text-4xl font-bold leading-tight text-balance md:text-5xl">
               Mohsen Khosravi
             </h1>

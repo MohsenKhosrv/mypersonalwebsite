@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Mail, Linkedin, Github } from "lucide-react"
+import { Linkedin, Github } from "lucide-react"
 import { SiteNav } from "@/components/site-nav"
 
 export const metadata: Metadata = {
@@ -9,13 +9,6 @@ export const metadata: Metadata = {
 }
 
 const CHANNELS = [
-  {
-    icon: Mail,
-    label: "Email",
-    value: "khosravi.mn@gmail.com",
-    href: "mailto:khosravi.mn@gmail.com",
-    external: false,
-  },
   {
     icon: Linkedin,
     label: "LinkedIn",

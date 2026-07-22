@@ -1,5 +1,5 @@
 import type { Metadata } from "next"
-import { Briefcase, GraduationCap, Wrench, Award, Mail, Phone, Linkedin } from "lucide-react"
+import { Briefcase, GraduationCap, Wrench, Award, Mail, Linkedin } from "lucide-react"
 import { SiteNav } from "@/components/site-nav"
 
 export const metadata: Metadata = {
@@ -139,16 +139,12 @@ export default function ResumePage() {
           <ul className="flex flex-col gap-1.5 text-sm text-muted-foreground">
             <li>
               <a
-                href="mailto:khosravi.mn@gmail.com"
+                href="/contact"
                 className="inline-flex items-center gap-2 transition-colors hover:text-teal"
               >
                 <Mail className="size-4 text-teal" aria-hidden="true" />
-                khosravi.mn@gmail.com
+                Contact me
               </a>
-            </li>
-            <li className="inline-flex items-center gap-2">
-              <Phone className="size-4 text-teal" aria-hidden="true" />
-              343-989-4540
             </li>
             <li>
               <a
