@@ -74,7 +74,7 @@ export function Portfolio() {
 
         <div className="flex min-w-0 flex-1 flex-col gap-6">
           {visibleStudies.map((study) => (
-            <CaseStudyCard key={study.id} study={study} />
+            <CaseStudyCard key={study.id} study={study} footerHref={`/projects/${study.id}`} />
           ))}
         </div>
       </div>

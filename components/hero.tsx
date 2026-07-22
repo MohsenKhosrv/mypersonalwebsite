@@ -56,9 +56,11 @@ export function Hero() {
               Product Manager · Data Analyst
             </p>
             <p className="mt-4 leading-relaxed text-hero-muted text-pretty">
-              I turn ambiguous problems into shipped products and messy data into decisions that
-              stick. Six years across media, manufacturing, and industrial operations — always at
-              the intersection of analysis and execution.
+              At my core I&apos;m a builder who starts with the question. What&apos;s the problem,
+              who does it affect, what&apos;s the impact. From there I go wherever the answer takes
+              me, deep data work, a new business line, a dashboard people actually use. The tool is
+              never the point. The impact is. This portfolio showcases some of the problems I have
+              solved.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
