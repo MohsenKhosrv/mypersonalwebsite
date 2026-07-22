@@ -1,5 +1,7 @@
 # dependencies
 /node_modules
+# this project uses pnpm — pnpm-lock.yaml is the source of truth
+package-lock.json
 
 # next.js
 /.next/
