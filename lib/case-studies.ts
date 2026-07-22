@@ -32,22 +32,6 @@ export const CATEGORY_LABELS: Record<CategoryId, string> = {
 
 export const CASE_STUDIES: CaseStudy[] = [
   {
-    id: "youtube-content-business",
-    category: "product-management",
-    year: "2018–2020",
-    tags: ["YouTube Analytics", "Content Strategy", "Business Development"],
-    title: "Building a YouTube Content Business from Zero",
-    company: "Rahnema",
-    problem:
-      "Rahnema, Iran's dominant music distributor, faced forecasted revenue pressure as the Rial collapsed. Domestic platforms were saturating. The company needed a new revenue channel for mid-term growth.",
-    whyItMattered:
-      "The Persian-speaking diaspora represented millions of underserved users on YouTube, generating ad revenue no Iranian distributor had systematically captured. The opportunity was large and largely untapped.",
-    solution:
-      "I identified the opportunity, built the business case, and led the build from a single test channel to an eight-channel operation. I defined content strategy, built operational infrastructure across legal, finance, design, and support, and optimized revenue through data-driven analysis of YouTube Analytics.",
-    keyImpact:
-      "300K+ subscribers, 9M monthly views, tens of thousands of dollars in monthly recurring revenue, 200%+ income growth for three consecutive months, all within 18 months.",
-  },
-  {
     id: "demand-forecasting",
     category: "data-analysis",
     year: "2023–2024",
@@ -78,5 +62,21 @@ export const CASE_STUDIES: CaseStudy[] = [
       "I traced the missing lineage back through the system's own audit log and built logic to reliably extract quality event data from it. I designed a relational data model connecting cartons, components, and quality events, built an ETL pipeline with server-side filtering for fast refreshes, and layered in DAX logic guaranteeing every repacked carton is accounted for.",
     keyImpact:
       "Reduced rework by 50% within 2 months. Reduced time to ship by 70% within 6 months. Gave Operations and Quality leadership their first real visibility into repack root causes.",
+  },
+  {
+    id: "youtube-content-business",
+    category: "product-management",
+    year: "2018–2020",
+    tags: ["YouTube Analytics", "Content Strategy", "Business Development"],
+    title: "Building a YouTube Content Business from Zero",
+    company: "Rahnema",
+    problem:
+      "Rahnema, Iran's dominant music distributor, faced forecasted revenue pressure as the Rial collapsed. Domestic platforms were saturating. The company needed a new revenue channel for mid-term growth.",
+    whyItMattered:
+      "The Persian-speaking diaspora represented millions of underserved users on YouTube, generating ad revenue no Iranian distributor had systematically captured. The opportunity was large and largely untapped.",
+    solution:
+      "I identified the opportunity, built the business case, and led the build from a single test channel to an eight-channel operation. I defined content strategy, built operational infrastructure across legal, finance, design, and support, and optimized revenue through data-driven analysis of YouTube Analytics.",
+    keyImpact:
+      "300K+ subscribers, 9M monthly views, tens of thousands of dollars in monthly recurring revenue, 200%+ income growth for three consecutive months, all within 18 months.",
   },
 ]

@@ -59,7 +59,7 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
           return (
             <div
               key={row.key}
-              className="grid grid-cols-1 gap-2 px-6 py-6 md:grid-cols-[220px_1fr] md:gap-8 md:px-8"
+              className="grid grid-cols-1 gap-2 px-6 py-3 md:grid-cols-[160px_1fr] md:gap-4 md:px-8"
             >
               <div className="flex items-center gap-2.5">
                 <Icon className="size-5 shrink-0 text-teal" strokeWidth={2} aria-hidden="true" />
