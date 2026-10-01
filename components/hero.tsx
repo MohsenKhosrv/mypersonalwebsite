@@ -52,16 +52,33 @@ export function Hero() {
             <h1 className="font-serif text-4xl font-bold leading-tight text-balance md:text-5xl">
               Mohsen Khosravi
             </h1>
-            <p className="mt-2 text-sm font-semibold tracking-[0.14em] text-teal uppercase">
-              Product Manager · Data Analyst
-            </p>
-            <p className="mt-4 leading-relaxed text-hero-muted text-pretty">
-              At my core I&apos;m a builder who starts with the question. What&apos;s the problem,
-              who does it affect, what&apos;s the impact. From there I go wherever the answer takes
-              me, deep data work, a new business line, a dashboard people actually use. The tool is
-              never the point. The impact is. This portfolio showcases some of the problems I have
-              solved.
-            </p>
+            <div className="mt-4 space-y-4 leading-relaxed text-hero-muted text-pretty">
+              <p>
+                The main purpose of this portfolio is to show how I think. The projects and
+                presentations demonstrate skills that I have built over the years, like data
+                analysis, coding, and Power BI, but while still valuable, to be frank, those are
+                going to become commodities as AI capabilities expand. What matters in the end is:
+              </p>
+              <ul className="list-disc space-y-1 pl-5">
+                <li>
+                  <span className="font-semibold text-hero-foreground">Thinking skills:</span>{" "}
+                  Structured Thinking, Systems Thinking, Design Thinking
+                </li>
+                <li>
+                  <span className="font-semibold text-hero-foreground">Interpersonal skills:</span>{" "}
+                  Collaboration, Coordination, Leadership
+                </li>
+              </ul>
+              <p>
+                If the thinking behind my work interests you, send me a message. I&apos;d be glad
+                to chat if:
+              </p>
+              <ul className="list-disc space-y-1 pl-5">
+                <li>You are a hiring manager or recruiter who wants to discuss an opportunity</li>
+                <li>You are a friend who could use a hand with a task or project</li>
+                <li>You are a curious visitor who shares these interests and wants to connect</li>
+              </ul>
+            </div>
             <div className="mt-7 flex flex-wrap gap-3">
               <Link
                 href="/resume"
