@@ -1,3 +1,4 @@
+import Image from "next/image"
 import Link from "next/link"
 import { AlertTriangle, Star, CheckCircle2, TrendingUp, ArrowUpRight, type LucideIcon } from "lucide-react"
 import type { CaseStudy } from "@/lib/case-studies"
@@ -54,8 +55,9 @@ export function CaseStudyCard({ study, footerHref }: { study: CaseStudy; footerH
       </div>
 
       {/* Detail rows */}
+      {/* Cards with an image show it in place of the detail rows */}
       <div className="divide-y divide-border">
-        {ROWS.map((row) => {
+        {(study.image ? [] : ROWS).map((row) => {
           const Icon = row.icon
           return (
             <div
@@ -71,6 +73,18 @@ export function CaseStudyCard({ study, footerHref }: { study: CaseStudy; footerH
           )
         })}
       </div>
+
+      {study.image ? (
+        <div className="border-t border-border bg-muted/40 p-4 md:p-6">
+          <Image
+            src={study.image.src}
+            alt={study.image.alt}
+            width={study.image.width}
+            height={study.image.height}
+            className="h-auto w-full rounded-lg border border-border"
+          />
+        </div>
+      ) : null}
 
       {/* Card footer */}
       {footerHref ? (

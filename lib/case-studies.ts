@@ -16,6 +16,8 @@ export interface CaseStudy {
   whyItMattered: string
   solution: string
   keyImpact: string
+  /** Optional screenshot shown at the bottom of the card; file lives in /public/projects */
+  image?: { src: string; alt: string; width: number; height: number }
 }
 
 export const CATEGORIES: Category[] = [
@@ -31,6 +33,27 @@ export const CATEGORY_LABELS: Record<CategoryId, string> = {
 }
 
 export const CASE_STUDIES: CaseStudy[] = [
+  {
+    id: "google-merchandise-store-dashboard",
+    category: "data-visualization",
+    year: "2026",
+    tags: ["Product Analytics", "Insight Generation", "Power BI", "SQL", "DAX"],
+    title: "Google Merchandise Store Power BI Dashboard",
+    company: "Sample visualization project using publicly available data from GA4 on BigQuery",
+    problem:
+      "The Google Merchandise Store team needs visibility into key engagement metrics and a clearer view of user behaviour across the site.",
+    whyItMattered: "These insights guide product and merchandising decisions.",
+    solution:
+      "I started with a stakeholder analysis, running (fictional) interviews with key groups, and turned their needs into the questions to answer and the metrics to show in a Power BI dashboard.",
+    keyImpact:
+      "A four-page dashboard covering the full user journey: acquisition, engagement, conversion, and revenue, followed with detailed insights.",
+    image: {
+      src: "/projects/Engagement_GMSD.jpg",
+      alt: "Engagement page of the Google Merchandise Store Power BI dashboard",
+      width: 1450,
+      height: 898,
+    },
+  },
   {
     id: "demand-forecasting",
     category: "data-analysis",

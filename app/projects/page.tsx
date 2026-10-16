@@ -1,4 +1,5 @@
 import type { Metadata } from "next"
+import Image from "next/image"
 import Link from "next/link"
 import { ArrowUpRight } from "lucide-react"
 import { SiteNav } from "@/components/site-nav"
@@ -42,9 +43,19 @@ export default function ProjectsPage() {
                   {study.title}
                 </h2>
                 <p className="mt-1 text-sm text-muted-foreground">{study.company}</p>
-                <p className="mt-3 line-clamp-3 leading-relaxed text-foreground/80 text-pretty">
-                  {study.problem}
-                </p>
+                {study.image ? (
+                  <Image
+                    src={study.image.src}
+                    alt={study.image.alt}
+                    width={study.image.width}
+                    height={study.image.height}
+                    className="mt-4 h-auto w-full rounded-lg border border-border"
+                  />
+                ) : (
+                  <p className="mt-3 line-clamp-3 leading-relaxed text-foreground/80 text-pretty">
+                    {study.problem}
+                  </p>
+                )}
                 <span className="mt-5 inline-flex items-center gap-1 self-end text-sm font-semibold text-teal">
                   Read case study
                   <ArrowUpRight

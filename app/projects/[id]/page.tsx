@@ -8,6 +8,41 @@ import { SiteNav } from "@/components/site-nav"
 import { CASE_STUDIES, CATEGORY_LABELS } from "@/lib/case-studies"
 import { CATEGORY_STYLES } from "@/lib/category-styles"
 import { getFullStoryBody } from "@/lib/full-stories"
+import { StoryToc, type TocItem } from "@/components/story-toc"
+
+const TOC_LABELS: Record<string, string> = {
+  "Overall Purpose and Stakeholder Analysis": "Purpose",
+  "ETL Process": "ETL",
+}
+
+function slugify(text: string) {
+  return text
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "")
+}
+
+/** Table-of-contents entries from the story's ## and ### headings (ignoring fenced code). */
+function getTocItems(markdown: string): TocItem[] {
+  const items: TocItem[] = []
+  let inFence = false
+  for (const line of markdown.split(/\r?\n/)) {
+    if (line.startsWith("```")) inFence = !inFence
+    if (inFence) continue
+    const m = /^(##|###) (.+?)\s*$/.exec(line)
+    if (!m) continue
+    items.push({
+      id: slugify(m[2]),
+      label: TOC_LABELS[m[2]] ?? m[2],
+      level: m[1] === "##" ? 2 : 3,
+    })
+  }
+  return items
+}
+
+function headingText(children: React.ReactNode): string {
+  return Array.isArray(children) ? children.join("") : String(children ?? "")
+}
 
 export function generateStaticParams() {
   return CASE_STUDIES.map((study) => ({ id: study.id }))
@@ -34,11 +69,18 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
 
   const styles = CATEGORY_STYLES[study.category]
   const fullStoryBody = getFullStoryBody(study.id)
+  const tocItems = fullStoryBody ? getTocItems(fullStoryBody) : []
 
   return (
     <>
       <SiteNav active="/projects" />
       <main className="mx-auto max-w-3xl px-5 py-10 md:px-8 md:py-14">
+        {tocItems.length > 1 ? (
+          <aside className="fixed top-1/2 left-5 z-10 hidden -translate-y-1/2 lg:block xl:left-8">
+            <StoryToc items={tocItems} />
+          </aside>
+        ) : null}
+        <div className="min-w-0">
         <Link
           href="/projects"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal transition-colors hover:text-accent"
@@ -83,9 +125,31 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
               prose-code:text-foreground prose-code:before:content-none prose-code:after:content-none
               prose-pre:bg-muted prose-pre:text-foreground
               prose-th:text-foreground prose-td:text-foreground/80
-              prose-hr:border-border prose-li:text-foreground/80"
+              prose-hr:border-border prose-li:text-foreground/80
+              prose-img:rounded-lg prose-img:border prose-img:border-border"
           >
-            <ReactMarkdown remarkPlugins={[remarkGfm]}>{fullStoryBody}</ReactMarkdown>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              components={{
+                h2: ({ node: _node, children, ...props }) => (
+                  <h2 id={slugify(headingText(children))} className="scroll-mt-24" {...props}>
+                    {children}
+                  </h2>
+                ),
+                h3: ({ node: _node, children, ...props }) => (
+                  <h3 id={slugify(headingText(children))} className="scroll-mt-24" {...props}>
+                    {children}
+                  </h3>
+                ),
+                table: ({ node: _node, ...props }) => (
+                  <div className="overflow-x-auto">
+                    <table {...props} />
+                  </div>
+                ),
+              }}
+            >
+              {fullStoryBody}
+            </ReactMarkdown>
           </div>
         ) : (
           <div className="mt-8 flex flex-col gap-5">
@@ -104,6 +168,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
             ))}
           </div>
         )}
+        </div>
       </main>
     </>
   )
