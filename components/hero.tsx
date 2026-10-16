@@ -56,8 +56,7 @@ export function Hero() {
               <p>
                 The main purpose of this portfolio is to show how I think. The projects and
                 presentations demonstrate skills that I have built over the years, like data
-                analysis, coding, and Power BI, but while still valuable, to be frank, those are
-                going to become commodities as AI capabilities expand. What matters in the end is:
+                analysis, coding, and Power BI, but what matters more is:
               </p>
               <ul className="list-disc space-y-1 pl-5">
                 <li>
