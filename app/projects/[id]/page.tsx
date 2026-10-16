@@ -10,9 +10,28 @@ import { CATEGORY_STYLES } from "@/lib/category-styles"
 import { getFullStoryBody } from "@/lib/full-stories"
 import { StoryToc, type TocItem } from "@/components/story-toc"
 
-const TOC_LABELS: Record<string, string> = {
-  "Overall Purpose and Stakeholder Analysis": "Purpose",
-  "ETL Process": "ETL",
+/**
+ * Per-story table-of-contents config: heading text -> short label. When a story has an entry,
+ * only the listed headings appear (all as top-level markers), in document order.
+ * Stories without an entry list every ## and ### heading under its own text.
+ */
+const TOC_OVERRIDES: Record<string, Record<string, string>> = {
+  "youtube-content-business": {
+    "Phase 1: Identifying the Opportunity": "Opportunity",
+    "Phase 2: Exploring a Solution": "Solution",
+    "Phase 3: Building a Commercial Success": "Commercial Success",
+    "Building the Business Infrastructure": "Business Infrastructure",
+    "Phase 4: Scaling the Business": "Scaling",
+    "Revenue Optimization": "Revenue Optimization",
+    "Reflection": "Reflection",
+  },
+  "google-merchandise-store-dashboard": {
+    "Visuals": "Visuals",
+    "Overall Purpose and Stakeholder Analysis": "Purpose",
+    "ETL Process": "ETL",
+    "Insights": "Insights",
+    "Appendix": "Appendix",
+  },
 }
 
 function slugify(text: string) {
@@ -23,7 +42,8 @@ function slugify(text: string) {
 }
 
 /** Table-of-contents entries from the story's ## and ### headings (ignoring fenced code). */
-function getTocItems(markdown: string): TocItem[] {
+function getTocItems(markdown: string, storyId: string): TocItem[] {
+  const overrides = TOC_OVERRIDES[storyId]
   const items: TocItem[] = []
   let inFence = false
   for (const line of markdown.split(/\r?\n/)) {
@@ -31,10 +51,11 @@ function getTocItems(markdown: string): TocItem[] {
     if (inFence) continue
     const m = /^(##|###) (.+?)\s*$/.exec(line)
     if (!m) continue
+    if (overrides && !(m[2] in overrides)) continue
     items.push({
       id: slugify(m[2]),
-      label: TOC_LABELS[m[2]] ?? m[2],
-      level: m[1] === "##" ? 2 : 3,
+      label: overrides ? overrides[m[2]] : m[2],
+      level: overrides || m[1] === "##" ? 2 : 3,
     })
   }
   return items
@@ -69,7 +90,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
 
   const styles = CATEGORY_STYLES[study.category]
   const fullStoryBody = getFullStoryBody(study.id)
-  const tocItems = fullStoryBody ? getTocItems(fullStoryBody) : []
+  const tocItems = fullStoryBody ? getTocItems(fullStoryBody, study.id) : []
 
   return (
     <>
