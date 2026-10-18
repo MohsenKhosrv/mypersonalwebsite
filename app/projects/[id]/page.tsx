@@ -104,6 +104,7 @@ export default async function CaseStudyPage({ params }: { params: Promise<{ id: 
         <div className="min-w-0">
         <Link
           href="/projects"
+          data-track-name="back_to_projects"
           className="inline-flex items-center gap-1.5 text-sm font-semibold text-teal transition-colors hover:text-accent"
         >
           <ArrowLeft className="size-4" aria-hidden="true" />

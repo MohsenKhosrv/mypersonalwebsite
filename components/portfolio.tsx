@@ -2,7 +2,7 @@
 
 import { useEffect, useMemo, useRef, useState } from "react"
 import type { CategoryId } from "@/lib/case-studies"
-import { CASE_STUDIES } from "@/lib/case-studies"
+import { CASE_STUDIES, CATEGORY_LABELS } from "@/lib/case-studies"
 import { Sidebar } from "./sidebar"
 import { CaseStudyCard } from "./case-study-card"
 
@@ -60,7 +60,10 @@ export function Portfolio() {
   }
 
   return (
-    <main className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12">
+    <main
+      data-active-filter={activeFilter === "all" ? "All" : CATEGORY_LABELS[activeFilter]}
+      className="mx-auto max-w-6xl px-5 py-8 md:px-8 md:py-12"
+    >
       <div className="flex flex-col gap-8 md:flex-row md:gap-10">
         <aside className="md:w-[280px] md:shrink-0">
           <Sidebar
@@ -73,8 +76,13 @@ export function Portfolio() {
         </aside>
 
         <div className="flex min-w-0 flex-1 flex-col gap-6">
-          {visibleStudies.map((study) => (
-            <CaseStudyCard key={study.id} study={study} footerHref={`/projects/${study.id}`} />
+          {visibleStudies.map((study, index) => (
+            <CaseStudyCard
+              key={study.id}
+              study={study}
+              footerHref={`/projects/${study.id}`}
+              position={index + 1}
+            />
           ))}
         </div>
       </div>

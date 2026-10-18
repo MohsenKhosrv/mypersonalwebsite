@@ -140,6 +140,7 @@ export default function ResumePage() {
             <li>
               <a
                 href="/contact"
+                data-track-name="resume_contact_me"
                 className="inline-flex items-center gap-2 transition-colors hover:text-teal"
               >
                 <Mail className="size-4 text-teal" aria-hidden="true" />
@@ -149,6 +150,7 @@ export default function ResumePage() {
             <li>
               <a
                 href="https://www.linkedin.com/in/khosravimohsen/"
+                data-track-name="resume_linkedin"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 transition-colors hover:text-teal"

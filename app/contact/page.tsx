@@ -43,6 +43,7 @@ export default function ContactPage() {
               <a
                 key={channel.label}
                 href={channel.href}
+                data-track-name={`contact_${channel.label.toLowerCase()}`}
                 target={channel.external ? "_blank" : undefined}
                 rel={channel.external ? "noopener noreferrer" : undefined}
                 className="flex flex-1 items-center gap-3 rounded-lg border border-border bg-card p-4 transition-colors hover:bg-muted"

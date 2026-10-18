@@ -14,6 +14,7 @@ export function SiteNav({ active }: { active?: string }) {
       <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-5 py-4 md:px-8">
         <Link
           href="/"
+          data-track-name="nav_logo"
           className="flex items-center gap-2.5 font-serif text-lg font-bold transition-opacity hover:opacity-90"
         >
           <span
@@ -27,13 +28,14 @@ export function SiteNav({ active }: { active?: string }) {
           </span>
           <span className="hidden sm:inline">Mohsen Khosravi</span>
         </Link>
-        <nav aria-label="Primary" className="flex items-center gap-1 md:gap-2">
+        <nav aria-label="Primary" data-track-zone="nav" className="flex items-center gap-1 md:gap-2">
           {NAV_LINKS.map((link) => {
             const isActive = active === link.href
             return (
               <Link
                 key={link.href}
                 href={link.href}
+                data-track-name={`nav_${link.label.toLowerCase()}`}
                 aria-current={isActive ? "page" : undefined}
                 className={`rounded-md px-3 py-2 text-sm font-semibold transition-colors ${
                   isActive

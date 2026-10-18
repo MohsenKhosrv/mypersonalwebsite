@@ -23,12 +23,15 @@ export default function ProjectsPage() {
         </p>
 
         <div className="mt-10 flex flex-col gap-5">
-          {CASE_STUDIES.map((study) => {
+          {CASE_STUDIES.map((study, index) => {
             const styles = CATEGORY_STYLES[study.category]
             return (
               <Link
                 key={study.id}
                 href={`/projects/${study.id}`}
+                data-track-card={study.title}
+                data-card-position={index + 1}
+                data-track-name="project_card"
                 className="group flex flex-col rounded-xl border border-border bg-card p-6 shadow-[0_1px_3px_rgba(0,0,0,0.04)] transition-shadow hover:shadow-[0_8px_24px_-12px_rgba(0,0,0,0.18)]"
               >
                 <div className="flex items-center justify-between gap-3">
