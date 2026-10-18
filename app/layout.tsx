@@ -1,5 +1,7 @@
 import type { Metadata } from "next"
 import { Inter, Lora } from "next/font/google"
+import { Suspense } from "react"
+import { AnalyticsProvider } from "@/components/analytics-provider"
 import "./globals.css"
 
 const inter = Inter({
@@ -28,7 +30,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${inter.variable} ${lora.variable} bg-background`}>
-      <body className="font-sans antialiased">{children}</body>
+      <body className="font-sans antialiased">
+        <Suspense fallback={null}>
+          <AnalyticsProvider />
+        </Suspense>
+        {children}
+      </body>
     </html>
   )
 }

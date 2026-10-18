@@ -18,12 +18,22 @@ const ROWS: DetailRow[] = [
   { icon: TrendingUp, label: "Key Impact", key: "keyImpact" },
 ]
 
-export function CaseStudyCard({ study, footerHref }: { study: CaseStudy; footerHref?: string }) {
+export function CaseStudyCard({
+  study,
+  footerHref,
+  position,
+}: {
+  study: CaseStudy
+  footerHref?: string
+  position?: number
+}) {
   const styles = CATEGORY_STYLES[study.category]
 
   return (
     <article
       id={study.id}
+      data-track-card={study.title}
+      data-card-position={position}
       className="scroll-mt-6 overflow-hidden rounded-xl border border-border bg-card shadow-[0_1px_3px_rgba(0,0,0,0.04),0_8px_24px_-12px_rgba(0,0,0,0.12)]"
     >
       {/* Card header */}
@@ -91,6 +101,7 @@ export function CaseStudyCard({ study, footerHref }: { study: CaseStudy; footerH
         <div className="border-t border-border px-6 py-4 md:px-8">
           <Link
             href={footerHref}
+            data-track-name="card_read_full_story"
             className="group inline-flex items-center gap-1 text-sm font-semibold text-teal"
           >
             Read Full Story
